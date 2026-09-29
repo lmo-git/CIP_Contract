@@ -3,277 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Truck Commit – New Transport Contract 2026 REV2</title>
+<title>Truck Commit – New Transport Contract 2026 REV3</title>
 <style>
-:root {
-  --bg:#f4f6f8; --card:#ffffff; --ink:#17202a; --muted:#6b7280;
-  --red:#d71920; --green:#15803d; --line:#e5e7eb; --soft:#f8fafc;
-}
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink); font-family:Arial,"Noto Sans Thai","Tahoma",sans-serif; }
-.container { max-width:1440px; margin:0 auto; padding:28px; }
-.hero {
-  background:linear-gradient(135deg,#182536 0%,#263b55 68%,#d71920 160%);
-  color:white; border-radius:22px; padding:28px 30px; box-shadow:0 10px 30px rgba(15,23,42,.14);
-}
-.hero-row { display:flex; gap:22px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
-.eyebrow { font-size:12px; letter-spacing:.11em; text-transform:uppercase; opacity:.72; font-weight:700; }
-h1 { margin:7px 0 7px; font-size:30px; line-height:1.2; }
-.hero p { margin:0; opacity:.82; font-size:14px; }
-.hero-badges { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-.badge { border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); border-radius:999px; padding:8px 12px; font-size:12px; }
-.badge.rev { background:#d71920; border-color:#ef6a6f; font-weight:800; }
-.kpis { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:18px; }
-.kpi { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:17px 18px; box-shadow:0 2px 12px rgba(15,23,42,.04); }
-.kpi .label { color:var(--muted); font-size:12px; font-weight:700; margin-bottom:6px; }
-.kpi .value { font-size:28px; font-weight:800; letter-spacing:-.02em; }
-.kpi .sub { font-size:12px; margin-top:5px; color:var(--muted); }
-.good .value,.positive { color:var(--green); }
-.warn .value,.negative { color:var(--red); }
-.grid2 { display:grid; grid-template-columns:1.3fr .9fr; gap:16px; margin-top:16px; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px; box-shadow:0 2px 12px rgba(15,23,42,.04); }
-.card h2 { font-size:17px; margin:0 0 4px; }
-.hint { color:var(--muted); font-size:12px; margin-bottom:16px; }
-.compare { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-.compare .item { background:var(--soft); border-radius:14px; padding:14px; }
-.compare .n { font-size:27px; font-weight:800; }
-.compare .t { color:var(--muted); font-size:12px; margin-top:2px; }
-.delta-box { margin-top:14px; padding:12px 14px; border-radius:12px; background:#ecfdf3; border:1px solid #bbf7d0; font-size:13px; }
-.alert-box { margin-top:10px; padding:10px 12px; border-radius:10px; background:#fff7ed; border:1px solid #fed7aa; font-size:12px; color:#9a3412; }
-.insights { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.insight { padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; }
-.insight strong { display:block; font-size:18px; margin-bottom:3px; }
-.insight span { font-size:12px; color:var(--muted); }
-.section { margin-top:16px; }
-.plant-row { display:grid; grid-template-columns:72px 1fr 80px 80px 84px 110px; gap:10px; align-items:center; padding:10px 0; border-bottom:1px solid #f0f2f4; font-size:13px; }
-.plant-row.header { font-size:11px; font-weight:700; color:var(--muted); padding-top:0; }
-.barwrap { position:relative; height:22px; background:#f1f5f9; border-radius:7px; overflow:hidden; }
-.bar-current { position:absolute; height:100%; background:#cbd5e1; left:0; top:0; }
-.bar-commit { position:absolute; height:8px; top:7px; left:0; border-radius:0 4px 4px 0; background:var(--red); }
-.num { text-align:right; font-variant-numeric:tabular-nums; }
-.pill { display:inline-flex; align-items:center; justify-content:center; min-width:62px; border-radius:999px; padding:5px 8px; font-size:11px; font-weight:700; }
-.pill.pos { color:#166534; background:#dcfce7; }
-.pill.neg { color:#991b1b; background:#fee2e2; }
-.pill.flat { color:#475569; background:#e2e8f0; }
-.change-list { display:flex; flex-direction:column; gap:8px; }
-.change-item { display:grid; grid-template-columns:62px 1fr 68px; gap:8px; align-items:center; padding:9px 10px; background:var(--soft); border-radius:10px; }
-.change-item .seg { font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.change-item .plant { font-size:12px; font-weight:800; }
-.change-item .change { text-align:right; font-weight:800; font-size:12px; }
-.toolbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:0 0 12px; }
-input,select { border:1px solid #d1d5db; border-radius:10px; background:white; padding:9px 11px; font:inherit; font-size:13px; outline:none; }
-.search { min-width:280px; }
-.table-wrap { overflow:auto; border:1px solid var(--line); border-radius:13px; max-height:620px; }
-table { border-collapse:collapse; width:100%; min-width:1080px; }
-th { position:sticky; top:0; z-index:2; text-align:left; background:#f8fafc; color:#475569; font-size:11px; padding:10px; border-bottom:1px solid var(--line); cursor:pointer; }
-td { padding:10px; border-bottom:1px solid #eef2f7; font-size:12px; }
-tbody tr:hover { background:#fafafa; }
-td.r,th.r { text-align:right; font-variant-numeric:tabular-nums; }
-.footer { color:#7c8795; font-size:11px; margin:16px 2px 2px; line-height:1.6; }
-.legend { display:flex; gap:14px; font-size:11px; color:var(--muted); margin-top:10px; }
-.dot { width:10px; height:10px; display:inline-block; margin-right:5px; border-radius:2px; vertical-align:-1px; }
-@media(max-width:1000px) { .kpis { grid-template-columns:repeat(2,1fr); } .grid2 { grid-template-columns:1fr; } }
-@media(max-width:700px) {
-  .container { padding:14px; } .hero { border-radius:16px; padding:22px; } h1 { font-size:24px; }
-  .kpis { grid-template-columns:1fr; } .plant-row { grid-template-columns:58px 1fr 55px 55px; }
-  .hide-mobile { display:none; } .insights { grid-template-columns:1fr; } .compare { grid-template-columns:1fr; }
-}
-@media print {
-  body { background:white; } .container { max-width:none; padding:0; } .hero,.card,.kpi { box-shadow:none; }
-  .toolbar { display:none; } .table-wrap { max-height:none; overflow:visible; } th { position:static; }
-}
+:root{--bg:#f4f6f8;--card:#fff;--ink:#17202a;--muted:#6b7280;--red:#d71920;--green:#15803d;--line:#e5e7eb;--soft:#f8fafc}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Thai","Tahoma",sans-serif}
+.container{max-width:1440px;margin:auto;padding:28px}
+.hero{background:linear-gradient(135deg,#182536 0%,#263b55 68%,#d71920 160%);color:#fff;border-radius:22px;padding:28px 30px;box-shadow:0 10px 30px rgba(15,23,42,.14)}
+.hero-row{display:flex;gap:22px;justify-content:space-between;flex-wrap:wrap} .eyebrow{font-size:12px;letter-spacing:.11em;text-transform:uppercase;opacity:.72;font-weight:700}
+h1{margin:7px 0;font-size:30px} .hero p{margin:0;opacity:.82;font-size:14px} .hero-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);border-radius:999px;padding:8px 12px;font-size:12px} .badge.rev{background:#d71920;font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px} .kpi,.card{background:var(--card);border:1px solid var(--line);box-shadow:0 2px 12px rgba(15,23,42,.04)}
+.kpi{border-radius:16px;padding:17px 18px} .kpi .label{color:var(--muted);font-size:12px;font-weight:700;margin-bottom:6px} .kpi .value{font-size:28px;font-weight:800}
+.kpi .sub{font-size:12px;margin-top:5px;color:var(--muted)} .good .value,.positive{color:var(--green)} .warn .value,.negative{color:var(--red)}
+.grid2{display:grid;grid-template-columns:1.3fr .9fr;gap:16px;margin-top:16px} .card{border-radius:18px;padding:20px} .card h2{font-size:17px;margin:0 0 4px}
+.hint{color:var(--muted);font-size:12px;margin-bottom:16px} .compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px} .compare .item{background:var(--soft);border-radius:14px;padding:14px}
+.compare .n{font-size:27px;font-weight:800} .compare .t{color:var(--muted);font-size:12px;margin-top:2px}
+.delta-box{margin-top:14px;padding:12px 14px;border-radius:12px;background:#ecfdf3;border:1px solid #bbf7d0;font-size:13px}
+.alert-box{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff7ed;border:1px solid #fed7aa;font-size:12px;color:#9a3412}
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:10px} .insight{padding:12px;border:1px solid var(--line);border-radius:12px} .insight strong{display:block;font-size:18px;margin-bottom:3px} .insight span{font-size:12px;color:var(--muted)}
+.section{margin-top:16px} .plant-row{display:grid;grid-template-columns:72px 1fr 80px 80px 84px 110px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f0f2f4;font-size:13px}
+.plant-row.header{font-size:11px;font-weight:700;color:var(--muted);padding-top:0} .barwrap{position:relative;height:22px;background:#f1f5f9;border-radius:7px;overflow:hidden}
+.bar-current{position:absolute;height:100%;background:#cbd5e1;left:0;top:0} .bar-commit{position:absolute;height:8px;top:7px;left:0;border-radius:0 4px 4px 0;background:var(--red)} .num{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-width:62px;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:700} .pill.pos{color:#166534;background:#dcfce7} .pill.neg{color:#991b1b;background:#fee2e2} .pill.flat{color:#475569;background:#e2e8f0}
+.change-list{display:flex;flex-direction:column;gap:8px} .change-item{display:grid;grid-template-columns:62px 1fr 68px;gap:8px;align-items:center;padding:9px 10px;background:var(--soft);border-radius:10px}
+.change-item .seg{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .change-item .plant{font-size:12px;font-weight:800} .change-item .change{text-align:right;font-weight:800;font-size:12px}
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 12px} input,select{border:1px solid #d1d5db;border-radius:10px;background:#fff;padding:9px 11px;font:inherit;font-size:13px} .search{min-width:280px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px;max-height:620px} table{border-collapse:collapse;width:100%;min-width:1080px} th{position:sticky;top:0;z-index:2;text-align:left;background:#f8fafc;color:#475569;font-size:11px;padding:10px;border-bottom:1px solid var(--line);cursor:pointer}
+td{padding:10px;border-bottom:1px solid #eef2f7;font-size:12px} tbody tr:hover{background:#fafafa} td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.footer{color:#7c8795;font-size:11px;margin:16px 2px 2px;line-height:1.6} .legend{display:flex;gap:14px;font-size:11px;color:var(--muted);margin-top:10px} .dot{width:10px;height:10px;display:inline-block;margin-right:5px;border-radius:2px;vertical-align:-1px}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+@media(max-width:700px){.container{padding:14px}.hero{padding:22px}h1{font-size:24px}.kpis{grid-template-columns:1fr}.plant-row{grid-template-columns:58px 1fr 55px 55px}.hide-mobile{display:none}.insights,.compare{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="container">
-  <section class="hero">
-    <div class="hero-row">
-      <div>
-        <div class="eyebrow">Transportation Contract Planning · 2026</div>
-        <h1>Truck Commit – สัญญาขนส่งใหม่</h1>
-        <p>สรุป Truck Commit ใหม่ เทียบฐาน Jan–Jul 2026 พร้อม Estimated Volume ราย Plant และประเภทรถ</p>
-      </div>
-      <div class="hero-badges">
-        <div class="badge rev">REV2 · Updated Data</div>
-        <div class="badge">28 Sep 2026</div>
-      </div>
-    </div>
-  </section>
+<section class="hero"><div class="hero-row"><div><div class="eyebrow">Transportation Contract Planning · 2026</div><h1>Truck Commit – สัญญาขนส่งใหม่</h1><p>สรุป Truck Commit ใหม่ เทียบฐาน Jan–Jul 2026 พร้อม Estimated Volume ราย Plant และประเภทรถ</p></div><div class="hero-badges"><div class="badge rev">REV3 · Updated Data</div><div class="badge">29 Sep 2026</div></div></div></section>
 
-  <section class="kpis">
-    <div class="kpi">
-      <div class="label">NEW CONTRACT COMMIT</div>
-      <div class="value">479</div>
-      <div class="sub">คัน/วัน · 10 Plants</div>
-    </div>
-    <div class="kpi good">
-      <div class="label">NET CHANGE VS 2026</div>
-      <div class="value">+53</div>
-      <div class="sub">+12.4% vs 426 คัน/วัน</div>
-    </div>
-    <div class="kpi">
-      <div class="label">EST. VOLUME / MONTH</div>
-      <div class="value">34.7K</div>
-      <div class="sub">34,703 Ton/Month</div>
-    </div>
-    <div class="kpi">
-      <div class="label">PLANTS WITH INCREASE</div>
-      <div class="value">7</div>
-      <div class="sub">TCNK, TCSB, TCCB, TCRB, TCPT, TCRY, TCKK</div>
-    </div>
-    <div class="kpi warn">
-      <div class="label">PLANTS WITH REDUCTION</div>
-      <div class="value">2</div>
-      <div class="sub">TCKP -1, TCS -1</div>
-    </div>
-  </section>
+<section class="kpis">
+<div class="kpi"><div class="label">NEW CONTRACT COMMIT</div><div class="value">480</div><div class="sub">คัน/วัน · 10 Plants</div></div>
+<div class="kpi good"><div class="label">NET CHANGE VS 2026</div><div class="value">+54</div><div class="sub">+12.7% vs 426 คัน/วัน</div></div>
+<div class="kpi"><div class="label">EST. VOLUME / MONTH</div><div class="value">34.4K</div><div class="sub">34,399 Ton/Month</div></div>
+<div class="kpi"><div class="label">PLANTS WITH INCREASE</div><div class="value">7</div><div class="sub">TCNK, TCSB, TCCB, TCRB, TCPT, TCRY, TCKK</div></div>
+<div class="kpi warn"><div class="label">PLANTS WITH REDUCTION</div><div class="value">2</div><div class="sub">TCKP -1, TCS -1</div></div>
+</section>
 
-  <section class="grid2">
-    <div class="card">
-      <h2>Executive Comparison</h2>
-      <div class="hint">จำนวนรถวิ่งประจำรวมทุก Plant</div>
-      <div class="compare">
-        <div class="item"><div class="n">441</div><div class="t">Avg. Jan–Dec 2025</div></div>
-        <div class="item"><div class="n">426</div><div class="t">Jan–Jul 2026 baseline</div></div>
-        <div class="item"><div class="n" style="color:var(--red)">479</div><div class="t">New contract commit · REV2</div></div>
-      </div>
-      <div class="delta-box"><b>Overall:</b> New Commit เพิ่มสุทธิ <b>53 คัน/วัน (+12.4%)</b> จาก baseline และรองรับ Estimated Volume ประมาณ <b>34,703 ตัน/เดือน</b></div>
-      <div class="alert-box"><b>Plant ที่ลดลง:</b> TCKP -1, TCS -1 คัน/วัน — ควรดูร่วมกับการโยก Truck Segment ภายใน Plant</div>
-    </div>
-
-    <div class="card">
-      <h2>Key Contract Signals</h2>
-      <div class="hint">Plant ที่เพิ่ม Truck Commit สูงสุดใน REV2</div>
-      <div class="insights"><div class="insight"><strong class="positive">TCNK +21</strong>
+<section class="grid2">
+<div class="card"><h2>Executive Comparison</h2><div class="hint">จำนวนรถวิ่งประจำรวมทุก Plant</div><div class="compare">
+<div class="item"><div class="n">441</div><div class="t">Avg. Jan–Dec 2025</div></div>
+<div class="item"><div class="n">426</div><div class="t">Jan–Jul 2026 baseline</div></div>
+<div class="item"><div class="n" style="color:var(--red)">480</div><div class="t">New contract commit · REV3</div></div></div>
+<div class="delta-box"><b>Overall:</b> New Commit เพิ่มสุทธิ <b>54 คัน/วัน (+12.7%)</b> และ Estimated Volume ประมาณ <b>34,399 ตัน/เดือน</b></div>
+<div class="alert-box"><b>Plant ที่ลดลง:</b> TCKP -1, TCS -1 คัน/วัน — ควรดูร่วมกับการโยก Truck Segment ภายใน Plant</div></div>
+<div class="card"><h2>Key Contract Signals</h2><div class="hint">Plant ที่เพิ่ม Truck Commit สูงสุดใน REV3</div><div class="insights"><div class="insight"><strong class="positive">TCNK +21</strong>
     <span>71 → 92 คัน/วัน (+29.6%)</span></div><div class="insight"><strong class="positive">TCSB +10</strong>
     <span>33 → 43 คัน/วัน (+30.3%)</span></div><div class="insight"><strong class="positive">TCCB +8</strong>
     <span>56 → 64 คัน/วัน (+14.3%)</span></div><div class="insight"><strong class="positive">TCRB +6</strong>
-    <span>73 → 79 คัน/วัน (+8.2%)</span></div></div>
-    </div>
-  </section>
+    <span>73 → 79 คัน/วัน (+8.2%)</span></div></div></div>
+</section>
 
-  <section class="grid2 section">
-    <div class="card">
-      <h2>Commit by Plant</h2>
-      <div class="hint">สีเทา = Jan–Jul 2026 · สีแดง = New Commit REV2</div>
-      <div class="plant-row header">
-        <div>Plant</div><div>Fleet comparison</div><div class="num">2026</div><div class="num">Commit</div><div class="num hide-mobile">Δ Trucks</div><div class="num hide-mobile">Ton/Month</div>
-      </div>
-      <div id="plantBars"></div>
-      <div class="legend"><span><i class="dot" style="background:#cbd5e1"></i>2026 baseline</span><span><i class="dot" style="background:#d71920"></i>New commit REV2</span></div>
-    </div>
+<section class="grid2 section">
+<div class="card"><h2>Commit by Plant</h2><div class="hint">สีเทา = Jan–Jul 2026 · สีแดง = New Commit REV3</div>
+<div class="plant-row header"><div>Plant</div><div>Fleet comparison</div><div class="num">2026</div><div class="num">Commit</div><div class="num hide-mobile">Δ Trucks</div><div class="num hide-mobile">Ton/Month</div></div><div id="plantBars"></div>
+<div class="legend"><span><i class="dot" style="background:#cbd5e1"></i>2026 baseline</span><span><i class="dot" style="background:#d71920"></i>New commit REV3</span></div></div>
+<div class="card"><h2>Largest Segment Changes</h2><div class="hint">เรียงตาม Absolute change เทียบ Jan–Jul 2026</div><div id="changeList" class="change-list"></div></div>
+</section>
 
-    <div class="card">
-      <h2>Largest Segment Changes</h2>
-      <div class="hint">เรียงตาม Absolute change เทียบ Jan–Jul 2026</div>
-      <div id="changeList" class="change-list"></div>
-    </div>
-  </section>
-
-  <section class="card section">
-    <h2>Detailed Truck Commit · REV2</h2>
-    <div class="hint">ค้นหา/กรอง Plant และคลิกหัวตารางเพื่อเรียงข้อมูล</div>
-    <div class="toolbar">
-      <select id="plantFilter"><option value="">All Plants</option></select>
-      <input id="search" class="search" placeholder="Search truck type / plant…">
-      <select id="changeFilter">
-        <option value="">All changes</option>
-        <option value="increase">Increase only</option>
-        <option value="decrease">Decrease only</option>
-        <option value="zero">Commit = 0</option>
-      </select>
-      <span id="rowCount" style="font-size:12px;color:#6b7280"></span>
-    </div>
-    <div class="table-wrap">
-      <table id="detailTable">
-        <thead>
-          <tr>
-            <th data-key="plant">Plant</th><th data-key="segment">Truck Segment</th>
-            <th class="r" data-key="cars_2025">2025 Avg Cars</th><th class="r" data-key="cars_2026">2026 Cars</th>
-            <th class="r" data-key="tons_day_car_2026">Ton/Day/Car</th><th class="r" data-key="rounds_day_2026">Round/Day</th>
-            <th class="r" data-key="commit">New Commit</th><th class="r" data-key="delta">Δ vs 2026</th>
-            <th class="r" data-key="delta_pct">Δ %</th><th class="r" data-key="volume_month">Est. Ton/Month</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
-
-  <div class="footer">
-    <b>REV2:</b> Dashboard นี้อ่านข้อมูลจากไฟล์ REV2 โดยตรงและคำนวณ KPI ใหม่ทั้งหมด.
-    ช่อง Truck Commit ที่ว่างถูกตีความเป็น 0 ในการสรุปจำนวนรถ.
-  </div>
+<section class="card section"><h2>Detailed Truck Commit · REV3</h2><div class="hint">ค้นหา/กรอง Plant และคลิกหัวตารางเพื่อเรียงข้อมูล</div>
+<div class="toolbar"><select id="plantFilter"><option value="">All Plants</option></select><input id="search" class="search" placeholder="Search truck type / plant…"><select id="changeFilter"><option value="">All changes</option><option value="increase">Increase only</option><option value="decrease">Decrease only</option><option value="zero">Commit = 0</option></select><span id="rowCount" style="font-size:12px;color:#6b7280"></span></div>
+<div class="table-wrap"><table id="detailTable"><thead><tr><th data-key="plant">Plant</th><th data-key="segment">Truck Segment</th><th class="r" data-key="cars_2025">2025 Avg Cars</th><th class="r" data-key="cars_2026">2026 Cars</th><th class="r" data-key="tons_day_car_2026">Ton/Day/Car</th><th class="r" data-key="rounds_day_2026">Round/Day</th><th class="r" data-key="commit">New Commit</th><th class="r" data-key="delta">Δ vs 2026</th><th class="r" data-key="delta_pct">Δ %</th><th class="r" data-key="volume_month">Est. Ton/Month</th></tr></thead><tbody></tbody></table></div></section>
+<div class="footer"><b>REV3:</b> Dashboard นี้อ่านข้อมูลจากไฟล์ REV3 โดยตรงและคำนวณ KPI ใหม่ทั้งหมด. ช่อง Truck Commit ที่ว่างถูกตีความเป็น 0.</div>
 </div>
-
 <script>
-const DATA = [{"plant": "TCNK", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.39, "rounds_day_2025": 1.51, "cars_2026": 10, "tons_day_car_2026": 0.37, "rounds_day_2026": 1.88, "commit": 15, "volume_month": 144.29999999999998, "delta": 5, "delta_pct": 50.0}, {"plant": "TCNK", "segment": "4WJumbo", "cars_2025": 5, "tons_day_car_2025": 0.8, "rounds_day_2025": 1.79, "cars_2026": 6, "tons_day_car_2026": 0.81, "rounds_day_2026": 1.91, "commit": 8, "volume_month": 168.48000000000002, "delta": 2, "delta_pct": 33.33333333333333}, {"plant": "TCNK", "segment": "6W5.5เปลือย", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 0, "tons_day_car_2026": 0, "rounds_day_2026": 0, "commit": 0, "volume_month": 0, "delta": 0, "delta_pct": 0}, {"plant": "TCNK", "segment": "6W5.5คอก", "cars_2025": 5, "tons_day_car_2025": 3.49, "rounds_day_2025": 0.97, "cars_2026": 5, "tons_day_car_2026": 3.41, "rounds_day_2026": 0.83, "commit": 6, "volume_month": 531.96, "delta": 1, "delta_pct": 20.0}, {"plant": "TCNK", "segment": "6W7.2เปลือย", "cars_2025": 9, "tons_day_car_2025": 3.75, "rounds_day_2025": 1.46, "cars_2026": 7, "tons_day_car_2026": 3.68, "rounds_day_2026": 1.6, "commit": 0, "volume_month": 0, "delta": -7, "delta_pct": -100.0}, {"plant": "TCNK", "segment": "6W7.2คอก", "cars_2025": 6, "tons_day_car_2025": 4.02, "rounds_day_2025": 0.64, "cars_2026": 5, "tons_day_car_2026": 3.91, "rounds_day_2026": 0.84, "commit": 8, "volume_month": 813.28, "delta": 3, "delta_pct": 60.0}, {"plant": "TCNK", "segment": "6W7.2ตู้", "cars_2025": 24, "tons_day_car_2025": 1.98, "rounds_day_2025": 1.6, "cars_2026": 25, "tons_day_car_2026": 1.99, "rounds_day_2026": 1.7, "commit": 39, "volume_month": 2017.86, "delta": 14, "delta_pct": 56.00000000000001}, {"plant": "TCNK", "segment": "6Wพ่วง/TL", "cars_2025": 12, "tons_day_car_2025": 5.93, "rounds_day_2025": 1.24, "cars_2026": 13, "tons_day_car_2026": 6.21, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 2583.36, "delta": 3, "delta_pct": 23.076923076923077}, {"plant": "TCRY", "segment": "4W", "cars_2025": 3, "tons_day_car_2025": 0.28, "rounds_day_2025": 1.61, "cars_2026": 3, "tons_day_car_2026": 0.3, "rounds_day_2026": 1.71, "commit": 3, "volume_month": 23.4, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2คอก", "cars_2025": 2, "tons_day_car_2025": 4.37, "rounds_day_2025": 1.26, "cars_2026": 1, "tons_day_car_2026": 5.94, "rounds_day_2026": 0.91, "commit": 1, "volume_month": 154.44, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2ตู้", "cars_2025": 29, "tons_day_car_2025": 2.22, "rounds_day_2025": 1.68, "cars_2026": 29, "tons_day_car_2026": 2.32, "rounds_day_2026": 1.73, "commit": 33, "volume_month": 1990.5599999999997, "delta": 4, "delta_pct": 13.793103448275861}, {"plant": "TCRY", "segment": "6W7.2เปลือย", "cars_2025": 4, "tons_day_car_2025": 2.8, "rounds_day_2025": 1.71, "cars_2026": 1, "tons_day_car_2026": 2.86, "rounds_day_2026": 2.08, "commit": 1, "volume_month": 74.36, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 3.71, "rounds_day_2025": 1.62, "cars_2026": 2, "tons_day_car_2026": 3.85, "rounds_day_2026": 1.87, "commit": 2, "volume_month": 200.20000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W side curtain", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 2, "tons_day_car_2026": 2.28, "rounds_day_2026": 1.61, "commit": 2, "volume_month": 118.55999999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2ตู้ เหมา", "cars_2025": 2, "tons_day_car_2025": 2.02, "rounds_day_2025": 3.18, "cars_2026": 2, "tons_day_car_2026": 2.07, "rounds_day_2026": 3.51, "commit": 2, "volume_month": 107.63999999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCS", "segment": "6W5.5คอก", "cars_2025": 6, "tons_day_car_2025": 2.48, "rounds_day_2025": 1.52, "cars_2026": 7, "tons_day_car_2026": 2.48, "rounds_day_2026": 1.51, "commit": 7, "volume_month": 451.36, "delta": 0, "delta_pct": 0.0}, {"plant": "TCS", "segment": "6W7.2เปลือย", "cars_2025": 3, "tons_day_car_2025": 3.73, "rounds_day_2025": 1.85, "cars_2026": 3, "tons_day_car_2026": 3.67, "rounds_day_2026": 1.6, "commit": 11, "volume_month": 1049.62, "delta": 8, "delta_pct": 266.66666666666663}, {"plant": "TCS", "segment": "6W7.2ตู้", "cars_2025": 11, "tons_day_car_2025": 3, "rounds_day_2025": 1.65, "cars_2026": 12, "tons_day_car_2026": 2.98, "rounds_day_2026": 1.01, "commit": 0, "volume_month": 0, "delta": -12, "delta_pct": -100.0}, {"plant": "TCS", "segment": "6W side curtain", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 1, "tons_day_car_2026": 3.06, "rounds_day_2026": 1, "commit": 4, "volume_month": 318.24, "delta": 3, "delta_pct": 300.0}, {"plant": "TCCB", "segment": "4W", "cars_2025": 4, "tons_day_car_2025": 0.25, "rounds_day_2025": 1.93, "cars_2026": 4, "tons_day_car_2026": 0.24, "rounds_day_2026": 1.93, "commit": 4, "volume_month": 24.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W7.2ตู้", "cars_2025": 32, "tons_day_car_2025": 1.82, "rounds_day_2025": 2.41, "cars_2026": 36, "tons_day_car_2026": 1.79, "rounds_day_2026": 2.41, "commit": 44, "volume_month": 2047.7600000000002, "delta": 8, "delta_pct": 22.22222222222222}, {"plant": "TCCB", "segment": "6W8.7ตู้", "cars_2025": 1, "tons_day_car_2025": 3.23, "rounds_day_2025": 2.37, "cars_2026": 1, "tons_day_car_2026": 2.88, "rounds_day_2026": 2.37, "commit": 1, "volume_month": 74.88, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 4.16, "rounds_day_2025": 2.94, "cars_2026": 2, "tons_day_car_2026": 4.24, "rounds_day_2026": 2.94, "commit": 2, "volume_month": 220.48000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W7.2ตู้ เหมา", "cars_2025": 10, "tons_day_car_2025": 1.43, "rounds_day_2025": 2.95, "cars_2026": 10, "tons_day_car_2026": 1.34, "rounds_day_2026": 2.82, "commit": 10, "volume_month": 348.40000000000003, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W side curtain", "cars_2025": 3, "tons_day_car_2025": 2.47, "rounds_day_2025": 1.5, "cars_2026": 3, "tons_day_car_2026": 2.47, "rounds_day_2026": 1.51, "commit": 3, "volume_month": 192.66, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKP", "segment": "4W", "cars_2025": 1, "tons_day_car_2025": 0.56, "rounds_day_2025": 1.32, "cars_2026": 1, "tons_day_car_2026": 0.52, "rounds_day_2026": 1.17, "commit": 0, "volume_month": 0, "delta": -1, "delta_pct": -100.0}, {"plant": "TCKP", "segment": "6W7.2คอก", "cars_2025": 7, "tons_day_car_2025": 5.58, "rounds_day_2025": 0.75, "cars_2026": 7, "tons_day_car_2026": 5.38, "rounds_day_2026": 0.75, "commit": 7, "volume_month": 979.1599999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKP", "segment": "6W7.2เปลือย", "cars_2025": 7, "tons_day_car_2025": 3.93, "rounds_day_2025": 1.04, "cars_2026": 8, "tons_day_car_2026": 4.32, "rounds_day_2026": 0.89, "commit": 7, "volume_month": 786.24, "delta": -1, "delta_pct": -12.5}, {"plant": "TCKP", "segment": "6W8.7เปลือย", "cars_2025": 10, "tons_day_car_2025": 3.83, "rounds_day_2025": 1.1, "cars_2026": 9, "tons_day_car_2026": 3.85, "rounds_day_2026": 1.25, "commit": 10, "volume_month": 1001, "delta": 1, "delta_pct": 11.11111111111111}, {"plant": "TCKP", "segment": "ตู้พ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 5.69, "rounds_day_2025": 1.25, "cars_2026": 2, "tons_day_car_2026": 5.26, "rounds_day_2026": 1.71, "commit": 2, "volume_month": 273.52, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKK", "segment": "6W7.2คอก", "cars_2025": 15, "tons_day_car_2025": 4.8, "rounds_day_2025": 0.75, "cars_2026": 13, "tons_day_car_2026": 4.88, "rounds_day_2026": 0.76, "commit": 8, "volume_month": 1015.04, "delta": -5, "delta_pct": -38.46153846153847}, {"plant": "TCKK", "segment": "6W7.2เปลือย", "cars_2025": 20, "tons_day_car_2025": 3.97, "rounds_day_2025": 0.92, "cars_2026": 18, "tons_day_car_2026": 3.99, "rounds_day_2026": 0.89, "commit": 24, "volume_month": 2489.76, "delta": 6, "delta_pct": 33.33333333333333}, {"plant": "TCKK", "segment": "ตู้พ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 9.33, "rounds_day_2025": 1.91, "cars_2026": 2, "tons_day_car_2026": 9.28, "rounds_day_2026": 1.94, "commit": 2, "volume_month": 482.55999999999995, "delta": 0, "delta_pct": 0.0}, {"plant": "TCSB", "segment": "4W", "cars_2025": 1, "tons_day_car_2025": 0.67, "rounds_day_2025": 1.6, "cars_2026": 1, "tons_day_car_2026": 0.48, "rounds_day_2026": 1.24, "commit": 1, "volume_month": 12.48, "delta": 0, "delta_pct": 0.0}, {"plant": "TCSB", "segment": "6W7.2เปลือย", "cars_2025": 18, "tons_day_car_2025": 4.45, "rounds_day_2025": 1.3, "cars_2026": 18, "tons_day_car_2026": 3.44, "rounds_day_2026": 1, "commit": 39, "volume_month": 3488.16, "delta": 21, "delta_pct": 116.66666666666667}, {"plant": "TCSB", "segment": "6W7.2เปลือย Curtain", "cars_2025": 9, "tons_day_car_2025": 4.22, "rounds_day_2025": 1.4, "cars_2026": 9, "tons_day_car_2026": 2.9, "rounds_day_2026": 1.16, "commit": 0, "volume_month": 0, "delta": -9, "delta_pct": -100.0}, {"plant": "TCSB", "segment": "6W7.2ตู้", "cars_2025": 4, "tons_day_car_2025": 3.15, "rounds_day_2025": 1.3, "cars_2026": 4, "tons_day_car_2026": 2.74, "rounds_day_2026": 1.4, "commit": 3, "volume_month": 213.72000000000003, "delta": -1, "delta_pct": -25.0}, {"plant": "TCSB", "segment": "ตู้พ่วง/TL", "cars_2025": 1, "tons_day_car_2025": 3.45, "rounds_day_2025": 0.6, "cars_2026": 1, "tons_day_car_2026": 6.02, "rounds_day_2026": 1.23, "commit": 0, "volume_month": 0, "delta": -1, "delta_pct": -100.0}, {"plant": "TCPT", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.43, "rounds_day_2025": 1.68, "cars_2026": 13, "tons_day_car_2026": 0.44, "rounds_day_2026": 1.53, "commit": 14, "volume_month": 160.16, "delta": 1, "delta_pct": 7.6923076923076925}, {"plant": "TCPT", "segment": "6W7.2คอก", "cars_2025": 3, "tons_day_car_2025": 3.4, "rounds_day_2025": 1.49, "cars_2026": 3, "tons_day_car_2026": 3.2, "rounds_day_2026": 1.15, "commit": 3, "volume_month": 249.60000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPT", "segment": "6W7.2ตู้", "cars_2025": 15, "tons_day_car_2025": 2.28, "rounds_day_2025": 1.43, "cars_2026": 11, "tons_day_car_2026": 2.29, "rounds_day_2026": 1.19, "commit": 15, "volume_month": 893.1, "delta": 4, "delta_pct": 36.36363636363637}, {"plant": "TCPT", "segment": "6W7.2เปลือย", "cars_2025": 5, "tons_day_car_2025": 3.83, "rounds_day_2025": 1.2, "cars_2026": 4, "tons_day_car_2026": 4, "rounds_day_2026": 1.31, "commit": 4, "volume_month": 416, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPT", "segment": "ตู้พ่วง/TL", "cars_2025": 4, "tons_day_car_2025": 7.87, "rounds_day_2025": 1.73, "cars_2026": 4, "tons_day_car_2026": 7.99, "rounds_day_2026": 1.41, "commit": 4, "volume_month": 830.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "4W", "cars_2025": 7, "tons_day_car_2025": 0.42, "rounds_day_2025": 1.66, "cars_2026": 7, "tons_day_car_2026": 0.42, "rounds_day_2026": 1.61, "commit": 7, "volume_month": 76.44, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "4W Jumbo", "cars_2025": 7, "tons_day_car_2025": 0.9, "rounds_day_2025": 1.22, "cars_2026": 6, "tons_day_car_2026": 0.91, "rounds_day_2026": 1.38, "commit": 6, "volume_month": 141.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 5.5 คอก", "cars_2025": 3, "tons_day_car_2025": 2.41, "rounds_day_2025": 1.07, "cars_2026": 3, "tons_day_car_2026": 2.65, "rounds_day_2026": 1, "commit": 3, "volume_month": 206.7, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 5.5เปลือย", "cars_2025": 4, "tons_day_car_2025": 1.96, "rounds_day_2025": 1.39, "cars_2026": 3, "tons_day_car_2026": 2.01, "rounds_day_2026": 1.63, "commit": 5, "volume_month": 261.29999999999995, "delta": 2, "delta_pct": 66.66666666666666}, {"plant": "TCRB", "segment": "6W 7.2เปลือย", "cars_2025": 35, "tons_day_car_2025": 3.5, "rounds_day_2025": 0.94, "cars_2026": 30, "tons_day_car_2026": 3.55, "rounds_day_2026": 1.06, "commit": 30, "volume_month": 2769, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 7.2คอก", "cars_2025": 4, "tons_day_car_2025": 5.02, "rounds_day_2025": 0.75, "cars_2026": 4, "tons_day_car_2026": 4.93, "rounds_day_2026": 0.69, "commit": 4, "volume_month": 512.72, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 7.2ตู้", "cars_2025": 17, "tons_day_car_2025": 3.04, "rounds_day_2025": 1.06, "cars_2026": 16, "tons_day_car_2026": 3.04, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 1264.64, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 5.23, "rounds_day_2025": 1.38, "cars_2026": 2, "tons_day_car_2026": 5.44, "rounds_day_2026": 1.17, "commit": 3, "volume_month": 424.32, "delta": 1, "delta_pct": 50.0}, {"plant": "TCRB", "segment": "6W 7.8 EV", "cars_2025": 2, "tons_day_car_2025": 3.5, "rounds_day_2025": 1.49, "cars_2026": 2, "tons_day_car_2026": 3.17, "rounds_day_2026": 1.55, "commit": 5, "volume_month": 412.09999999999997, "delta": 3, "delta_pct": 150.0}, {"plant": "TCPB", "segment": "4W", "cars_2025": 4, "tons_day_car_2025": 0.276, "rounds_day_2025": 1.5, "cars_2026": 4, "tons_day_car_2026": 0.242, "rounds_day_2026": 1.4, "commit": 4, "volume_month": 25.168, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPB", "segment": "6W 5.5 คอก", "cars_2025": 5, "tons_day_car_2025": 1.19, "rounds_day_2025": 1.6, "cars_2026": 5, "tons_day_car_2026": 1.23, "rounds_day_2026": 1.6, "commit": 5, "volume_month": 159.9, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPB", "segment": "6W 7.2ตู้/Side curtain", "cars_2025": 26, "tons_day_car_2025": 2.25, "rounds_day_2025": 1.3, "cars_2026": 26, "tons_day_car_2026": 2.22, "rounds_day_2026": 1.4, "commit": 26, "volume_month": 1500.7200000000003, "delta": 0, "delta_pct": 0.0}];
-const PLANTS = [{"plant": "TCNK", "cars_2025": 74, "cars_2026": 71, "commit": 92, "delta": 21, "delta_pct": 29.577464788732392, "volume_month": 6259.24}, {"plant": "TCRB", "cars_2025": 81, "cars_2026": 73, "commit": 79, "delta": 6, "delta_pct": 8.21917808219178, "volume_month": 6069.18}, {"plant": "TCCB", "cars_2025": 52, "cars_2026": 56, "commit": 64, "delta": 8, "delta_pct": 14.285714285714285, "volume_month": 2909.1400000000003}, {"plant": "TCRY", "cars_2025": 42, "cars_2026": 40, "commit": 44, "delta": 4, "delta_pct": 10.0, "volume_month": 2669.16}, {"plant": "TCSB", "cars_2025": 33, "cars_2026": 33, "commit": 43, "delta": 10, "delta_pct": 30.303030303030305, "volume_month": 3714.3599999999997}, {"plant": "TCPT", "cars_2025": 40, "cars_2026": 35, "commit": 40, "delta": 5, "delta_pct": 14.285714285714285, "volume_month": 2549.82}, {"plant": "TCPB", "cars_2025": 35, "cars_2026": 35, "commit": 35, "delta": 0, "delta_pct": 0.0, "volume_month": 1685.7880000000002}, {"plant": "TCKK", "cars_2025": 37, "cars_2026": 33, "commit": 34, "delta": 1, "delta_pct": 3.0303030303030303, "volume_month": 3987.36}, {"plant": "TCKP", "cars_2025": 27, "cars_2026": 27, "commit": 26, "delta": -1, "delta_pct": -3.7037037037037033, "volume_month": 3039.9199999999996}, {"plant": "TCS", "cars_2025": 20, "cars_2026": 23, "commit": 22, "delta": -1, "delta_pct": -4.3478260869565215, "volume_month": 1819.2199999999998}];
-const CHANGES = [{"plant": "TCSB", "segment": "6W7.2เปลือย", "cars_2025": 18, "tons_day_car_2025": 4.45, "rounds_day_2025": 1.3, "cars_2026": 18, "tons_day_car_2026": 3.44, "rounds_day_2026": 1, "commit": 39, "volume_month": 3488.16, "delta": 21, "delta_pct": 116.66666666666667}, {"plant": "TCNK", "segment": "6W7.2ตู้", "cars_2025": 24, "tons_day_car_2025": 1.98, "rounds_day_2025": 1.6, "cars_2026": 25, "tons_day_car_2026": 1.99, "rounds_day_2026": 1.7, "commit": 39, "volume_month": 2017.86, "delta": 14, "delta_pct": 56.00000000000001}, {"plant": "TCS", "segment": "6W7.2ตู้", "cars_2025": 11, "tons_day_car_2025": 3, "rounds_day_2025": 1.65, "cars_2026": 12, "tons_day_car_2026": 2.98, "rounds_day_2026": 1.01, "commit": 0, "volume_month": 0, "delta": -12, "delta_pct": -100.0}, {"plant": "TCSB", "segment": "6W7.2เปลือย Curtain", "cars_2025": 9, "tons_day_car_2025": 4.22, "rounds_day_2025": 1.4, "cars_2026": 9, "tons_day_car_2026": 2.9, "rounds_day_2026": 1.16, "commit": 0, "volume_month": 0, "delta": -9, "delta_pct": -100.0}, {"plant": "TCS", "segment": "6W7.2เปลือย", "cars_2025": 3, "tons_day_car_2025": 3.73, "rounds_day_2025": 1.85, "cars_2026": 3, "tons_day_car_2026": 3.67, "rounds_day_2026": 1.6, "commit": 11, "volume_month": 1049.62, "delta": 8, "delta_pct": 266.66666666666663}, {"plant": "TCCB", "segment": "6W7.2ตู้", "cars_2025": 32, "tons_day_car_2025": 1.82, "rounds_day_2025": 2.41, "cars_2026": 36, "tons_day_car_2026": 1.79, "rounds_day_2026": 2.41, "commit": 44, "volume_month": 2047.7600000000002, "delta": 8, "delta_pct": 22.22222222222222}, {"plant": "TCNK", "segment": "6W7.2เปลือย", "cars_2025": 9, "tons_day_car_2025": 3.75, "rounds_day_2025": 1.46, "cars_2026": 7, "tons_day_car_2026": 3.68, "rounds_day_2026": 1.6, "commit": 0, "volume_month": 0, "delta": -7, "delta_pct": -100.0}, {"plant": "TCKK", "segment": "6W7.2เปลือย", "cars_2025": 20, "tons_day_car_2025": 3.97, "rounds_day_2025": 0.92, "cars_2026": 18, "tons_day_car_2026": 3.99, "rounds_day_2026": 0.89, "commit": 24, "volume_month": 2489.76, "delta": 6, "delta_pct": 33.33333333333333}, {"plant": "TCNK", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.39, "rounds_day_2025": 1.51, "cars_2026": 10, "tons_day_car_2026": 0.37, "rounds_day_2026": 1.88, "commit": 15, "volume_month": 144.29999999999998, "delta": 5, "delta_pct": 50.0}, {"plant": "TCKK", "segment": "6W7.2คอก", "cars_2025": 15, "tons_day_car_2025": 4.8, "rounds_day_2025": 0.75, "cars_2026": 13, "tons_day_car_2026": 4.88, "rounds_day_2026": 0.76, "commit": 8, "volume_month": 1015.04, "delta": -5, "delta_pct": -38.46153846153847}, {"plant": "TCRY", "segment": "6W7.2ตู้", "cars_2025": 29, "tons_day_car_2025": 2.22, "rounds_day_2025": 1.68, "cars_2026": 29, "tons_day_car_2026": 2.32, "rounds_day_2026": 1.73, "commit": 33, "volume_month": 1990.5599999999997, "delta": 4, "delta_pct": 13.793103448275861}, {"plant": "TCPT", "segment": "6W7.2ตู้", "cars_2025": 15, "tons_day_car_2025": 2.28, "rounds_day_2025": 1.43, "cars_2026": 11, "tons_day_car_2026": 2.29, "rounds_day_2026": 1.19, "commit": 15, "volume_month": 893.1, "delta": 4, "delta_pct": 36.36363636363637}, {"plant": "TCNK", "segment": "6W7.2คอก", "cars_2025": 6, "tons_day_car_2025": 4.02, "rounds_day_2025": 0.64, "cars_2026": 5, "tons_day_car_2026": 3.91, "rounds_day_2026": 0.84, "commit": 8, "volume_month": 813.28, "delta": 3, "delta_pct": 60.0}, {"plant": "TCNK", "segment": "6Wพ่วง/TL", "cars_2025": 12, "tons_day_car_2025": 5.93, "rounds_day_2025": 1.24, "cars_2026": 13, "tons_day_car_2026": 6.21, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 2583.36, "delta": 3, "delta_pct": 23.076923076923077}];
-const fmt0 = n => Number(n||0).toLocaleString('en-US', {maximumFractionDigits:0});
-const fmt1 = n => Number(n||0).toLocaleString('en-US', {minimumFractionDigits:1,maximumFractionDigits:1});
-const fmt2 = n => Number(n||0).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
-const sign = n => n>0 ? '+'+fmt0(n) : fmt0(n);
-
-const maxCars = Math.max(...PLANTS.map(x => Math.max(x.cars_2026,x.commit)));
-document.getElementById('plantBars').innerHTML = PLANTS.map(p => {
-  const cls = p.delta>0 ? 'pos' : p.delta<0 ? 'neg' : 'flat';
-  return `<div class="plant-row">
-    <div><b>${p.plant}</b></div>
-    <div class="barwrap"><div class="bar-current" style="width:${p.cars_2026/maxCars*100}%"></div><div class="bar-commit" style="width:${p.commit/maxCars*100}%"></div></div>
-    <div class="num">${fmt0(p.cars_2026)}</div><div class="num"><b>${fmt0(p.commit)}</b></div>
-    <div class="num hide-mobile"><span class="pill ${cls}">${sign(p.delta)}</span></div>
-    <div class="num hide-mobile">${fmt0(p.volume_month)}</div>
-  </div>`;
-}).join('');
-
-document.getElementById('changeList').innerHTML = CHANGES.map(x => {
-  const cls = x.delta>0 ? 'positive' : x.delta<0 ? 'negative' : '';
-  return `<div class="change-item"><div class="plant">${x.plant}</div>
-    <div class="seg" title="${x.segment}">${x.segment} <span style="color:#94a3b8">${fmt0(x.cars_2026)}→${fmt0(x.commit)}</span></div>
-    <div class="change ${cls}">${x.delta>0?'+':''}${fmt0(x.delta)}</div></div>`;
-}).join('');
-
-const plantFilter = document.getElementById('plantFilter');
-[...new Set(DATA.map(x=>x.plant))].sort().forEach(p => {
-  const o=document.createElement('option'); o.value=p; o.textContent=p; plantFilter.appendChild(o);
-});
-
-let sortKey='plant', sortAsc=true;
-const tbody=document.querySelector('#detailTable tbody');
-function renderTable() {
-  const pf=plantFilter.value, q=document.getElementById('search').value.trim().toLowerCase(), cf=document.getElementById('changeFilter').value;
-  let rows=DATA.filter(x => {
-    if (pf && x.plant!==pf) return false;
-    if (q && !(`${x.plant} ${x.segment}`.toLowerCase().includes(q))) return false;
-    if (cf==='increase' && !(x.delta>0)) return false;
-    if (cf==='decrease' && !(x.delta<0)) return false;
-    if (cf==='zero' && !(x.commit===0 && x.cars_2026>0)) return false;
-    return true;
-  });
-  rows.sort((a,b) => {
-    let av=a[sortKey], bv=b[sortKey];
-    if (typeof av==='string') return sortAsc ? av.localeCompare(bv,'th') : bv.localeCompare(av,'th');
-    return sortAsc ? av-bv : bv-av;
-  });
-  tbody.innerHTML=rows.map(x => {
-    const cls=x.delta>0?'positive':x.delta<0?'negative':'';
-    const pct=x.cars_2026 ? (x.delta/x.cars_2026*100) : (x.commit>0?100:0);
-    return `<tr><td><b>${x.plant}</b></td><td>${x.segment}</td>
-      <td class="r">${fmt0(x.cars_2025)}</td><td class="r">${fmt0(x.cars_2026)}</td>
-      <td class="r">${fmt2(x.tons_day_car_2026)}</td><td class="r">${fmt2(x.rounds_day_2026)}</td>
-      <td class="r"><b>${fmt0(x.commit)}</b></td><td class="r ${cls}"><b>${x.delta>0?'+':''}${fmt0(x.delta)}</b></td>
-      <td class="r ${cls}">${x.delta>0?'+':''}${fmt1(pct)}%</td><td class="r">${fmt0(x.volume_month)}</td></tr>`;
-  }).join('');
-  document.getElementById('rowCount').textContent=`${rows.length} of ${DATA.length} rows`;
-}
-document.querySelectorAll('#detailTable th[data-key]').forEach(th => th.addEventListener('click',()=>{
-  const key=th.dataset.key; if(sortKey===key) sortAsc=!sortAsc; else {sortKey=key;sortAsc=true;} renderTable();
-}));
-plantFilter.addEventListener('change',renderTable);
-document.getElementById('search').addEventListener('input',renderTable);
-document.getElementById('changeFilter').addEventListener('change',renderTable);
-renderTable();
+const DATA=[{"plant": "TCNK", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.39, "rounds_day_2025": 1.51, "cars_2026": 10, "tons_day_car_2026": 0.37, "rounds_day_2026": 1.88, "commit": 15, "volume_month": 144.29999999999998, "delta": 5, "delta_pct": 50.0}, {"plant": "TCNK", "segment": "4WJumbo", "cars_2025": 5, "tons_day_car_2025": 0.8, "rounds_day_2025": 1.79, "cars_2026": 6, "tons_day_car_2026": 0.81, "rounds_day_2026": 1.91, "commit": 8, "volume_month": 168.48000000000002, "delta": 2, "delta_pct": 33.33333333333333}, {"plant": "TCNK", "segment": "6W5.5เปลือย", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 0, "tons_day_car_2026": 0, "rounds_day_2026": 0, "commit": 0, "volume_month": 0, "delta": 0, "delta_pct": 0}, {"plant": "TCNK", "segment": "6W5.5คอก", "cars_2025": 5, "tons_day_car_2025": 3.49, "rounds_day_2025": 0.97, "cars_2026": 5, "tons_day_car_2026": 3.41, "rounds_day_2026": 0.83, "commit": 6, "volume_month": 531.96, "delta": 1, "delta_pct": 20.0}, {"plant": "TCNK", "segment": "6W7.2เปลือย", "cars_2025": 9, "tons_day_car_2025": 3.75, "rounds_day_2025": 1.46, "cars_2026": 7, "tons_day_car_2026": 3.68, "rounds_day_2026": 1.6, "commit": 0, "volume_month": 0, "delta": -7, "delta_pct": -100.0}, {"plant": "TCNK", "segment": "6W7.2คอก", "cars_2025": 6, "tons_day_car_2025": 4.02, "rounds_day_2025": 0.64, "cars_2026": 5, "tons_day_car_2026": 3.91, "rounds_day_2026": 0.84, "commit": 8, "volume_month": 813.28, "delta": 3, "delta_pct": 60.0}, {"plant": "TCNK", "segment": "6W7.2ตู้", "cars_2025": 24, "tons_day_car_2025": 1.98, "rounds_day_2025": 1.6, "cars_2026": 25, "tons_day_car_2026": 1.99, "rounds_day_2026": 1.7, "commit": 39, "volume_month": 2017.86, "delta": 14, "delta_pct": 56.00000000000001}, {"plant": "TCNK", "segment": "6Wพ่วง/TL", "cars_2025": 12, "tons_day_car_2025": 5.93, "rounds_day_2025": 1.24, "cars_2026": 13, "tons_day_car_2026": 6.21, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 2583.36, "delta": 3, "delta_pct": 23.076923076923077}, {"plant": "TCRY", "segment": "4W", "cars_2025": 3, "tons_day_car_2025": 0.28, "rounds_day_2025": 1.61, "cars_2026": 3, "tons_day_car_2026": 0.3, "rounds_day_2026": 1.71, "commit": 3, "volume_month": 23.4, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2คอก", "cars_2025": 2, "tons_day_car_2025": 4.37, "rounds_day_2025": 1.26, "cars_2026": 1, "tons_day_car_2026": 5.94, "rounds_day_2026": 0.91, "commit": 1, "volume_month": 154.44, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2ตู้", "cars_2025": 29, "tons_day_car_2025": 2.22, "rounds_day_2025": 1.68, "cars_2026": 29, "tons_day_car_2026": 2.32, "rounds_day_2026": 1.73, "commit": 33, "volume_month": 1990.5599999999997, "delta": 4, "delta_pct": 13.793103448275861}, {"plant": "TCRY", "segment": "6W7.2เปลือย", "cars_2025": 4, "tons_day_car_2025": 2.8, "rounds_day_2025": 1.71, "cars_2026": 1, "tons_day_car_2026": 2.86, "rounds_day_2026": 2.08, "commit": 1, "volume_month": 74.36, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 3.71, "rounds_day_2025": 1.62, "cars_2026": 2, "tons_day_car_2026": 3.85, "rounds_day_2026": 1.87, "commit": 2, "volume_month": 200.20000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W side curtain", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 2, "tons_day_car_2026": 2.28, "rounds_day_2026": 1.61, "commit": 2, "volume_month": 118.55999999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRY", "segment": "6W7.2ตู้ เหมา", "cars_2025": 2, "tons_day_car_2025": 2.02, "rounds_day_2025": 3.18, "cars_2026": 2, "tons_day_car_2026": 2.07, "rounds_day_2026": 3.51, "commit": 2, "volume_month": 107.63999999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCS", "segment": "6W5.5คอก", "cars_2025": 6, "tons_day_car_2025": 2.48, "rounds_day_2025": 1.52, "cars_2026": 7, "tons_day_car_2026": 2.48, "rounds_day_2026": 1.51, "commit": 7, "volume_month": 451.36, "delta": 0, "delta_pct": 0.0}, {"plant": "TCS", "segment": "6W7.2เปลือย", "cars_2025": 3, "tons_day_car_2025": 3.73, "rounds_day_2025": 1.85, "cars_2026": 3, "tons_day_car_2026": 3.67, "rounds_day_2026": 1.6, "commit": 11, "volume_month": 1049.62, "delta": 8, "delta_pct": 266.66666666666663}, {"plant": "TCS", "segment": "6W7.2ตู้", "cars_2025": 11, "tons_day_car_2025": 3, "rounds_day_2025": 1.65, "cars_2026": 12, "tons_day_car_2026": 2.98, "rounds_day_2026": 1.01, "commit": 0, "volume_month": 0, "delta": -12, "delta_pct": -100.0}, {"plant": "TCS", "segment": "6W side curtain", "cars_2025": 0, "tons_day_car_2025": 0, "rounds_day_2025": 0, "cars_2026": 1, "tons_day_car_2026": 3.06, "rounds_day_2026": 1, "commit": 4, "volume_month": 318.24, "delta": 3, "delta_pct": 300.0}, {"plant": "TCCB", "segment": "4W", "cars_2025": 4, "tons_day_car_2025": 0.25, "rounds_day_2025": 1.93, "cars_2026": 4, "tons_day_car_2026": 0.24, "rounds_day_2026": 1.93, "commit": 4, "volume_month": 24.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W7.2ตู้", "cars_2025": 32, "tons_day_car_2025": 1.82, "rounds_day_2025": 2.41, "cars_2026": 36, "tons_day_car_2026": 1.79, "rounds_day_2026": 2.41, "commit": 44, "volume_month": 2047.7600000000002, "delta": 8, "delta_pct": 22.22222222222222}, {"plant": "TCCB", "segment": "6W8.7ตู้", "cars_2025": 1, "tons_day_car_2025": 3.23, "rounds_day_2025": 2.37, "cars_2026": 1, "tons_day_car_2026": 2.88, "rounds_day_2026": 2.37, "commit": 1, "volume_month": 74.88, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 4.16, "rounds_day_2025": 2.94, "cars_2026": 2, "tons_day_car_2026": 4.24, "rounds_day_2026": 2.94, "commit": 2, "volume_month": 220.48000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W7.2ตู้ เหมา", "cars_2025": 10, "tons_day_car_2025": 1.43, "rounds_day_2025": 2.95, "cars_2026": 10, "tons_day_car_2026": 1.34, "rounds_day_2026": 2.82, "commit": 10, "volume_month": 348.40000000000003, "delta": 0, "delta_pct": 0.0}, {"plant": "TCCB", "segment": "6W side curtain", "cars_2025": 3, "tons_day_car_2025": 2.47, "rounds_day_2025": 1.5, "cars_2026": 3, "tons_day_car_2026": 2.47, "rounds_day_2026": 1.51, "commit": 3, "volume_month": 192.66, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKP", "segment": "4W", "cars_2025": 1, "tons_day_car_2025": 0.56, "rounds_day_2025": 1.32, "cars_2026": 1, "tons_day_car_2026": 0.52, "rounds_day_2026": 1.17, "commit": 0, "volume_month": 0, "delta": -1, "delta_pct": -100.0}, {"plant": "TCKP", "segment": "6W7.2คอก", "cars_2025": 7, "tons_day_car_2025": 5.58, "rounds_day_2025": 0.75, "cars_2026": 7, "tons_day_car_2026": 5.38, "rounds_day_2026": 0.75, "commit": 7, "volume_month": 979.1599999999999, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKP", "segment": "6W7.2เปลือย", "cars_2025": 7, "tons_day_car_2025": 3.93, "rounds_day_2025": 1.04, "cars_2026": 8, "tons_day_car_2026": 4.32, "rounds_day_2026": 0.89, "commit": 7, "volume_month": 786.24, "delta": -1, "delta_pct": -12.5}, {"plant": "TCKP", "segment": "6W8.7เปลือย", "cars_2025": 10, "tons_day_car_2025": 3.83, "rounds_day_2025": 1.1, "cars_2026": 9, "tons_day_car_2026": 3.85, "rounds_day_2026": 1.25, "commit": 10, "volume_month": 1001, "delta": 1, "delta_pct": 11.11111111111111}, {"plant": "TCKP", "segment": "ตู้พ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 5.69, "rounds_day_2025": 1.25, "cars_2026": 2, "tons_day_car_2026": 5.26, "rounds_day_2026": 1.71, "commit": 2, "volume_month": 273.52, "delta": 0, "delta_pct": 0.0}, {"plant": "TCKK", "segment": "6W7.2คอก", "cars_2025": 15, "tons_day_car_2025": 4.8, "rounds_day_2025": 0.75, "cars_2026": 13, "tons_day_car_2026": 4.88, "rounds_day_2026": 0.76, "commit": 8, "volume_month": 771.4304, "delta": -5, "delta_pct": -38.46153846153847}, {"plant": "TCKK", "segment": "6W7.2เปลือย", "cars_2025": 20, "tons_day_car_2025": 3.97, "rounds_day_2025": 0.92, "cars_2026": 18, "tons_day_car_2026": 3.49, "rounds_day_2026": 0.89, "commit": 25, "volume_month": 2018.965, "delta": 7, "delta_pct": 38.88888888888889}, {"plant": "TCKK", "segment": "ตู้พ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 9.33, "rounds_day_2025": 1.91, "cars_2026": 2, "tons_day_car_2026": 9.28, "rounds_day_2026": 1.85, "commit": 2, "volume_month": 892.736, "delta": 0, "delta_pct": 0.0}, {"plant": "TCSB", "segment": "4W", "cars_2025": 1, "tons_day_car_2025": 0.67, "rounds_day_2025": 1.6, "cars_2026": 1, "tons_day_car_2026": 0.48, "rounds_day_2026": 1.24, "commit": 1, "volume_month": 12.48, "delta": 0, "delta_pct": 0.0}, {"plant": "TCSB", "segment": "6W7.2เปลือย", "cars_2025": 18, "tons_day_car_2025": 4.45, "rounds_day_2025": 1.3, "cars_2026": 18, "tons_day_car_2026": 3.44, "rounds_day_2026": 1, "commit": 39, "volume_month": 3488.16, "delta": 21, "delta_pct": 116.66666666666667}, {"plant": "TCSB", "segment": "6W7.2เปลือย Curtain", "cars_2025": 9, "tons_day_car_2025": 4.22, "rounds_day_2025": 1.4, "cars_2026": 9, "tons_day_car_2026": 2.9, "rounds_day_2026": 1.16, "commit": 0, "volume_month": 0, "delta": -9, "delta_pct": -100.0}, {"plant": "TCSB", "segment": "6W7.2ตู้", "cars_2025": 4, "tons_day_car_2025": 3.15, "rounds_day_2025": 1.3, "cars_2026": 4, "tons_day_car_2026": 2.74, "rounds_day_2026": 1.4, "commit": 3, "volume_month": 213.72000000000003, "delta": -1, "delta_pct": -25.0}, {"plant": "TCSB", "segment": "ตู้พ่วง/TL", "cars_2025": 1, "tons_day_car_2025": 3.45, "rounds_day_2025": 0.6, "cars_2026": 1, "tons_day_car_2026": 6.02, "rounds_day_2026": 1.23, "commit": 0, "volume_month": 0, "delta": -1, "delta_pct": -100.0}, {"plant": "TCPT", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.43, "rounds_day_2025": 1.68, "cars_2026": 13, "tons_day_car_2026": 0.44, "rounds_day_2026": 1.53, "commit": 14, "volume_month": 160.16, "delta": 1, "delta_pct": 7.6923076923076925}, {"plant": "TCPT", "segment": "6W7.2คอก", "cars_2025": 3, "tons_day_car_2025": 3.4, "rounds_day_2025": 1.49, "cars_2026": 3, "tons_day_car_2026": 3.2, "rounds_day_2026": 1.15, "commit": 3, "volume_month": 249.60000000000002, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPT", "segment": "6W7.2ตู้", "cars_2025": 15, "tons_day_car_2025": 2.28, "rounds_day_2025": 1.43, "cars_2026": 11, "tons_day_car_2026": 2.29, "rounds_day_2026": 1.19, "commit": 15, "volume_month": 893.1, "delta": 4, "delta_pct": 36.36363636363637}, {"plant": "TCPT", "segment": "6W7.2เปลือย", "cars_2025": 5, "tons_day_car_2025": 3.83, "rounds_day_2025": 1.2, "cars_2026": 4, "tons_day_car_2026": 4, "rounds_day_2026": 1.31, "commit": 4, "volume_month": 416, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPT", "segment": "ตู้พ่วง/TL", "cars_2025": 4, "tons_day_car_2025": 7.87, "rounds_day_2025": 1.73, "cars_2026": 4, "tons_day_car_2026": 7.99, "rounds_day_2026": 1.41, "commit": 4, "volume_month": 830.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "4W", "cars_2025": 7, "tons_day_car_2025": 0.42, "rounds_day_2025": 1.66, "cars_2026": 7, "tons_day_car_2026": 0.42, "rounds_day_2026": 1.61, "commit": 7, "volume_month": 76.44, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "4W Jumbo", "cars_2025": 7, "tons_day_car_2025": 0.9, "rounds_day_2025": 1.22, "cars_2026": 6, "tons_day_car_2026": 0.91, "rounds_day_2026": 1.38, "commit": 6, "volume_month": 141.96, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 5.5 คอก", "cars_2025": 3, "tons_day_car_2025": 2.41, "rounds_day_2025": 1.07, "cars_2026": 3, "tons_day_car_2026": 2.65, "rounds_day_2026": 1, "commit": 3, "volume_month": 206.7, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 5.5เปลือย", "cars_2025": 4, "tons_day_car_2025": 1.96, "rounds_day_2025": 1.39, "cars_2026": 3, "tons_day_car_2026": 2.01, "rounds_day_2026": 1.63, "commit": 5, "volume_month": 261.29999999999995, "delta": 2, "delta_pct": 66.66666666666666}, {"plant": "TCRB", "segment": "6W 7.2เปลือย", "cars_2025": 35, "tons_day_car_2025": 3.5, "rounds_day_2025": 0.94, "cars_2026": 30, "tons_day_car_2026": 3.55, "rounds_day_2026": 1.06, "commit": 30, "volume_month": 2769, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 7.2คอก", "cars_2025": 4, "tons_day_car_2025": 5.02, "rounds_day_2025": 0.75, "cars_2026": 4, "tons_day_car_2026": 4.93, "rounds_day_2026": 0.69, "commit": 4, "volume_month": 512.72, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6W 7.2ตู้", "cars_2025": 17, "tons_day_car_2025": 3.04, "rounds_day_2025": 1.06, "cars_2026": 16, "tons_day_car_2026": 3.04, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 1264.64, "delta": 0, "delta_pct": 0.0}, {"plant": "TCRB", "segment": "6Wพ่วง/TL", "cars_2025": 2, "tons_day_car_2025": 5.23, "rounds_day_2025": 1.38, "cars_2026": 2, "tons_day_car_2026": 5.44, "rounds_day_2026": 1.17, "commit": 3, "volume_month": 424.32, "delta": 1, "delta_pct": 50.0}, {"plant": "TCRB", "segment": "6W 7.8 EV", "cars_2025": 2, "tons_day_car_2025": 3.5, "rounds_day_2025": 1.49, "cars_2026": 2, "tons_day_car_2026": 3.17, "rounds_day_2026": 1.55, "commit": 5, "volume_month": 412.09999999999997, "delta": 3, "delta_pct": 150.0}, {"plant": "TCPB", "segment": "4W", "cars_2025": 4, "tons_day_car_2025": 0.276, "rounds_day_2025": 1.5, "cars_2026": 4, "tons_day_car_2026": 0.242, "rounds_day_2026": 1.4, "commit": 4, "volume_month": 25.168, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPB", "segment": "6W 5.5 คอก", "cars_2025": 5, "tons_day_car_2025": 1.19, "rounds_day_2025": 1.6, "cars_2026": 5, "tons_day_car_2026": 1.23, "rounds_day_2026": 1.6, "commit": 5, "volume_month": 159.9, "delta": 0, "delta_pct": 0.0}, {"plant": "TCPB", "segment": "6W 7.2ตู้/Side curtain", "cars_2025": 26, "tons_day_car_2025": 2.25, "rounds_day_2025": 1.3, "cars_2026": 26, "tons_day_car_2026": 2.22, "rounds_day_2026": 1.4, "commit": 26, "volume_month": 1500.7200000000003, "delta": 0, "delta_pct": 0.0}]; const PLANTS=[{"plant": "TCNK", "cars_2025": 74, "cars_2026": 71, "commit": 92, "delta": 21, "delta_pct": 29.577464788732392, "volume_month": 6259.24}, {"plant": "TCRB", "cars_2025": 81, "cars_2026": 73, "commit": 79, "delta": 6, "delta_pct": 8.21917808219178, "volume_month": 6069.18}, {"plant": "TCCB", "cars_2025": 52, "cars_2026": 56, "commit": 64, "delta": 8, "delta_pct": 14.285714285714285, "volume_month": 2909.1400000000003}, {"plant": "TCRY", "cars_2025": 42, "cars_2026": 40, "commit": 44, "delta": 4, "delta_pct": 10.0, "volume_month": 2669.16}, {"plant": "TCSB", "cars_2025": 33, "cars_2026": 33, "commit": 43, "delta": 10, "delta_pct": 30.303030303030305, "volume_month": 3714.3599999999997}, {"plant": "TCPT", "cars_2025": 40, "cars_2026": 35, "commit": 40, "delta": 5, "delta_pct": 14.285714285714285, "volume_month": 2549.82}, {"plant": "TCKK", "cars_2025": 37, "cars_2026": 33, "commit": 35, "delta": 2, "delta_pct": 6.0606060606060606, "volume_month": 3683.1313999999998}, {"plant": "TCPB", "cars_2025": 35, "cars_2026": 35, "commit": 35, "delta": 0, "delta_pct": 0.0, "volume_month": 1685.7880000000002}, {"plant": "TCKP", "cars_2025": 27, "cars_2026": 27, "commit": 26, "delta": -1, "delta_pct": -3.7037037037037033, "volume_month": 3039.9199999999996}, {"plant": "TCS", "cars_2025": 20, "cars_2026": 23, "commit": 22, "delta": -1, "delta_pct": -4.3478260869565215, "volume_month": 1819.2199999999998}]; const CHANGES=[{"plant": "TCSB", "segment": "6W7.2เปลือย", "cars_2025": 18, "tons_day_car_2025": 4.45, "rounds_day_2025": 1.3, "cars_2026": 18, "tons_day_car_2026": 3.44, "rounds_day_2026": 1, "commit": 39, "volume_month": 3488.16, "delta": 21, "delta_pct": 116.66666666666667}, {"plant": "TCNK", "segment": "6W7.2ตู้", "cars_2025": 24, "tons_day_car_2025": 1.98, "rounds_day_2025": 1.6, "cars_2026": 25, "tons_day_car_2026": 1.99, "rounds_day_2026": 1.7, "commit": 39, "volume_month": 2017.86, "delta": 14, "delta_pct": 56.00000000000001}, {"plant": "TCS", "segment": "6W7.2ตู้", "cars_2025": 11, "tons_day_car_2025": 3, "rounds_day_2025": 1.65, "cars_2026": 12, "tons_day_car_2026": 2.98, "rounds_day_2026": 1.01, "commit": 0, "volume_month": 0, "delta": -12, "delta_pct": -100.0}, {"plant": "TCSB", "segment": "6W7.2เปลือย Curtain", "cars_2025": 9, "tons_day_car_2025": 4.22, "rounds_day_2025": 1.4, "cars_2026": 9, "tons_day_car_2026": 2.9, "rounds_day_2026": 1.16, "commit": 0, "volume_month": 0, "delta": -9, "delta_pct": -100.0}, {"plant": "TCS", "segment": "6W7.2เปลือย", "cars_2025": 3, "tons_day_car_2025": 3.73, "rounds_day_2025": 1.85, "cars_2026": 3, "tons_day_car_2026": 3.67, "rounds_day_2026": 1.6, "commit": 11, "volume_month": 1049.62, "delta": 8, "delta_pct": 266.66666666666663}, {"plant": "TCCB", "segment": "6W7.2ตู้", "cars_2025": 32, "tons_day_car_2025": 1.82, "rounds_day_2025": 2.41, "cars_2026": 36, "tons_day_car_2026": 1.79, "rounds_day_2026": 2.41, "commit": 44, "volume_month": 2047.7600000000002, "delta": 8, "delta_pct": 22.22222222222222}, {"plant": "TCNK", "segment": "6W7.2เปลือย", "cars_2025": 9, "tons_day_car_2025": 3.75, "rounds_day_2025": 1.46, "cars_2026": 7, "tons_day_car_2026": 3.68, "rounds_day_2026": 1.6, "commit": 0, "volume_month": 0, "delta": -7, "delta_pct": -100.0}, {"plant": "TCKK", "segment": "6W7.2เปลือย", "cars_2025": 20, "tons_day_car_2025": 3.97, "rounds_day_2025": 0.92, "cars_2026": 18, "tons_day_car_2026": 3.49, "rounds_day_2026": 0.89, "commit": 25, "volume_month": 2018.965, "delta": 7, "delta_pct": 38.88888888888889}, {"plant": "TCNK", "segment": "4W", "cars_2025": 13, "tons_day_car_2025": 0.39, "rounds_day_2025": 1.51, "cars_2026": 10, "tons_day_car_2026": 0.37, "rounds_day_2026": 1.88, "commit": 15, "volume_month": 144.29999999999998, "delta": 5, "delta_pct": 50.0}, {"plant": "TCKK", "segment": "6W7.2คอก", "cars_2025": 15, "tons_day_car_2025": 4.8, "rounds_day_2025": 0.75, "cars_2026": 13, "tons_day_car_2026": 4.88, "rounds_day_2026": 0.76, "commit": 8, "volume_month": 771.4304, "delta": -5, "delta_pct": -38.46153846153847}, {"plant": "TCRY", "segment": "6W7.2ตู้", "cars_2025": 29, "tons_day_car_2025": 2.22, "rounds_day_2025": 1.68, "cars_2026": 29, "tons_day_car_2026": 2.32, "rounds_day_2026": 1.73, "commit": 33, "volume_month": 1990.5599999999997, "delta": 4, "delta_pct": 13.793103448275861}, {"plant": "TCPT", "segment": "6W7.2ตู้", "cars_2025": 15, "tons_day_car_2025": 2.28, "rounds_day_2025": 1.43, "cars_2026": 11, "tons_day_car_2026": 2.29, "rounds_day_2026": 1.19, "commit": 15, "volume_month": 893.1, "delta": 4, "delta_pct": 36.36363636363637}, {"plant": "TCNK", "segment": "6W7.2คอก", "cars_2025": 6, "tons_day_car_2025": 4.02, "rounds_day_2025": 0.64, "cars_2026": 5, "tons_day_car_2026": 3.91, "rounds_day_2026": 0.84, "commit": 8, "volume_month": 813.28, "delta": 3, "delta_pct": 60.0}, {"plant": "TCNK", "segment": "6Wพ่วง/TL", "cars_2025": 12, "tons_day_car_2025": 5.93, "rounds_day_2025": 1.24, "cars_2026": 13, "tons_day_car_2026": 6.21, "rounds_day_2026": 1.27, "commit": 16, "volume_month": 2583.36, "delta": 3, "delta_pct": 23.076923076923077}];
+const fmt0=n=>Number(n||0).toLocaleString('en-US',{maximumFractionDigits:0});
+const fmt1=n=>Number(n||0).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
+const fmt2=n=>Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const sign=n=>n>0?'+'+fmt0(n):fmt0(n);
+const maxCars=Math.max(...PLANTS.map(x=>Math.max(x.cars_2026,x.commit)));
+document.getElementById('plantBars').innerHTML=PLANTS.map(p=>{const cls=p.delta>0?'pos':p.delta<0?'neg':'flat';return `<div class="plant-row"><div><b>${p.plant}</b></div><div class="barwrap"><div class="bar-current" style="width:${p.cars_2026/maxCars*100}%"></div><div class="bar-commit" style="width:${p.commit/maxCars*100}%"></div></div><div class="num">${fmt0(p.cars_2026)}</div><div class="num"><b>${fmt0(p.commit)}</b></div><div class="num hide-mobile"><span class="pill ${cls}">${sign(p.delta)}</span></div><div class="num hide-mobile">${fmt0(p.volume_month)}</div></div>`}).join('');
+document.getElementById('changeList').innerHTML=CHANGES.map(x=>{const cls=x.delta>0?'positive':x.delta<0?'negative':'';return `<div class="change-item"><div class="plant">${x.plant}</div><div class="seg" title="${x.segment}">${x.segment} <span style="color:#94a3b8">${fmt0(x.cars_2026)}→${fmt0(x.commit)}</span></div><div class="change ${cls}">${x.delta>0?'+':''}${fmt0(x.delta)}</div></div>`}).join('');
+const plantFilter=document.getElementById('plantFilter'); [...new Set(DATA.map(x=>x.plant))].sort().forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;plantFilter.appendChild(o)});
+let sortKey='plant',sortAsc=true; const tbody=document.querySelector('#detailTable tbody');
+function renderTable(){const pf=plantFilter.value,q=document.getElementById('search').value.trim().toLowerCase(),cf=document.getElementById('changeFilter').value;let rows=DATA.filter(x=>{if(pf&&x.plant!==pf)return false;if(q&&!(`${x.plant} ${x.segment}`.toLowerCase().includes(q)))return false;if(cf==='increase'&&!(x.delta>0))return false;if(cf==='decrease'&&!(x.delta<0))return false;if(cf==='zero'&&!(x.commit===0&&x.cars_2026>0))return false;return true});rows.sort((a,b)=>{let av=a[sortKey],bv=b[sortKey];if(typeof av==='string')return sortAsc?av.localeCompare(bv,'th'):bv.localeCompare(av,'th');return sortAsc?av-bv:bv-av});tbody.innerHTML=rows.map(x=>{const cls=x.delta>0?'positive':x.delta<0?'negative':'';const pct=x.cars_2026?(x.delta/x.cars_2026*100):(x.commit>0?100:0);return `<tr><td><b>${x.plant}</b></td><td>${x.segment}</td><td class="r">${fmt0(x.cars_2025)}</td><td class="r">${fmt0(x.cars_2026)}</td><td class="r">${fmt2(x.tons_day_car_2026)}</td><td class="r">${fmt2(x.rounds_day_2026)}</td><td class="r"><b>${fmt0(x.commit)}</b></td><td class="r ${cls}"><b>${x.delta>0?'+':''}${fmt0(x.delta)}</b></td><td class="r ${cls}">${x.delta>0?'+':''}${fmt1(pct)}%</td><td class="r">${fmt0(x.volume_month)}</td></tr>`}).join('');document.getElementById('rowCount').textContent=`${rows.length} of ${DATA.length} rows`}
+document.querySelectorAll('#detailTable th[data-key]').forEach(th=>th.addEventListener('click',()=>{const key=th.dataset.key;if(sortKey===key)sortAsc=!sortAsc;else{sortKey=key;sortAsc=true}renderTable()}));
+plantFilter.addEventListener('change',renderTable);document.getElementById('search').addEventListener('input',renderTable);document.getElementById('changeFilter').addEventListener('change',renderTable);renderTable();
 </script>
-</body>
-</html>
+</body></html>
